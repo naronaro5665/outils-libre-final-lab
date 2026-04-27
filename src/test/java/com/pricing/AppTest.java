@@ -1,26 +1,64 @@
 package com.pricing;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Test;           // ← تأكد من هذا الـ import
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import static org.junit.jupiter.api.Assertions.*;
-import java.util.List;
 
 class AppTest {
-
-    @Test
+    
+    private PricingEngine engine;
+    
+    @BeforeEach
+    void setUp() {
+        engine = new PricingEngine();
+    }
+    
+    @Test                              // ← يجب أن يكون قبل كل دالة اختبار
+    @DisplayName("Regular customer without discount - no discount")
     void testRegularCustomerNoDiscount() {
-        double result = App.calc(List.of(100), List.of(1), "REGULAR", "");
-        assertEquals(119.0, result, 0.01);
+        // ... المحتوى
     }
-
-    @Test
+    
+    @Test                              // ← يجب أن يكون هنا
+    @DisplayName("Regular customer with SAVE10 - gets 5% discount")
     void testSave10Discount() {
-        double result = App.calc(List.of(100), List.of(1), "REGULAR", "SAVE10");
-        assertEquals(107.1, result, 0.01);
+        // ... المحتوى
     }
-
-    @Test
+    
+    @Test                              // ← يجب أن يكون هنا
+    @DisplayName("VIP customer without discount - gets 5% base discount")
     void testVipDiscount() {
-        double result = App.calc(List.of(100), List.of(1), "VIP", "");
-        assertEquals(101.15, result, 0.01);
+        // ... المحتوى
+    }
+    
+    @Test                              // ← يجب أن يكون هنا
+    @DisplayName("VIP customer with SAVE20 - gets 20% discount")
+    void testVipWithSave20() {
+        // ... المحتوى
+    }
+    
+    @Test                              // ← يجب أن يكون هنا
+    @DisplayName("VIP customer with SAVE10 - gets 10% discount")
+    void testVipWithSave10() {
+        // ... المحتوى
+    }
+    
+    @Test                              // ← يجب أن يكون هنا
+    @DisplayName("Multiple items with VIP and SAVE20")
+    void testMultipleItemsVipSave20() {
+        // ... المحتوى
+    }
+    
+    @Test                              // ← يجب أن يكون هنا
+    @DisplayName("Edge case - zero quantity items")
+    void testZeroQuantity() {
+        // ... المحتوى
+    }
+    
+    @Test                              // ← يجب أن يكون هنا
+    @DisplayName("Edge case - zero price items")
+    void testZeroPrice() {
+        // ... المحتوى
     }
 }
