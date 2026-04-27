@@ -1,5 +1,11 @@
-# Ignore Gradle project-specific cache directory
-.gradle
+@"
+.gradle/
+build/
+bin/
+.vscode/
+*.class
+"@ | Set-Content .gitignore
 
-# Ignore Gradle build output directory
-build
+git rm -r --cached bin/
+git add .gitignore
+git commit -m "Fix gitignore - exclude build and bin directories"
